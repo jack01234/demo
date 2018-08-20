@@ -40,10 +40,10 @@ public class PcDeviceGrade {
      * @return 分数
      */
 
-    @RequestMapping(value = "/pcDeviceGrade",method = RequestMethod.POST)
+    @RequestMapping(value = "/deviceGrade",method = RequestMethod.POST)
     @ApiOperation(value = "pc设备特征计分",notes = "pc设备特征计分接口")
     @ResponseBody
-    public DeviceGradeResDTO pcDeviceGrade(@RequestBody DeviceGradeDTO req){
+    public DeviceGradeResDTO deviceGrade(@RequestBody DeviceGradeDTO req){
         MDC.put("TRACE_LOG_ID",TraceLogIdUtil.createTraceLogId());
 
         DeviceGradeResDTO res = new DeviceGradeResDTO();

@@ -1,5 +1,7 @@
 package com.example.demo.convert;
 
+import com.example.demo.enums.FlagEnum;
+import com.example.demo.model.bo.AndroidDeviceInfoBO;
 import com.example.demo.model.bo.PcDeviceInfoBO;
 import org.apache.commons.lang3.StringUtils;
 
@@ -19,6 +21,11 @@ public class DeviceSearchConverter {
      * excludeOpenDatabase
      */
     public static final String NOT_FLAG = "0";
+
+    /**
+     * mac 默认值
+     */
+    public static final String MAC_DEFAULT_VALUE = "02:00:00:00:00:00";
     /**
      * client convert to do
      * @param req 请求对象
@@ -71,5 +78,43 @@ public class DeviceSearchConverter {
 
         res.setVideoId(StringUtils.isNotBlank(req.getVideoId())?req.getVideoId():NO_VAL);
       return res;
+    }
+
+
+
+    /**
+     * android convert to do
+     * @param req 请求对象
+     * @return 转换结果
+     */
+    public static AndroidDeviceInfoBO androidDtoConvertToBo(AndroidDeviceInfoBO req){
+        AndroidDeviceInfoBO res = new AndroidDeviceInfoBO();
+        res.setXyid(req.getXyid());
+        res.setFirstXyid(req.getFirstXyid());
+        res.setTotalSize(StringUtils.isNotBlank(req.getTotalSize())?req.getTotalSize():NO_VAL);
+        res.setDeviceName(StringUtils.isNotBlank(req.getDeviceName())?req.getDeviceName():NO_VAL);
+        res.setUnitType(StringUtils.isNotBlank(req.getUnitType())?req.getUnitType():NO_VAL);
+        res.setBios(StringUtils.isNotBlank(req.getBios())?req.getBios():NO_VAL);
+        res.setCpu(StringUtils.isNotBlank(req.getCpu())?req.getCpu():NO_VAL);
+        res.setFcpu(StringUtils.isNotBlank(req.getFcpu())?req.getFcpu():NO_VAL);
+        res.setFontNum(StringUtils.isNotBlank(req.getFontNum())?req.getFontNum():NO_VAL);
+        res.setImei(StringUtils.isNotBlank(req.getImei())?req.getImei():NO_VAL);
+        res.setImsi(StringUtils.isNotBlank(req.getImsi())?req.getImsi():NO_VAL);
+        res.setIsRoot(StringUtils.isNotBlank(req.getIsRoot())?req.getIsRoot():FlagEnum.FALSE.getKey());
+        if (StringUtils.isNotBlank(req.getMac())) {
+            res.setMac(MAC_DEFAULT_VALUE.equals(req.getMac())?NO_VAL:req.getMac());
+        } else {
+            res.setMac(NO_VAL);
+        }
+        res.setPhoneNum(StringUtils.isNotBlank(req.getPhoneNum())?req.getPhoneNum():NO_VAL);
+        res.setScreenRes(StringUtils.isNotBlank(req.getScreenRes())?req.getScreenRes():NO_VAL);
+        res.setSimulator(StringUtils.isNotBlank(req.getSimulator())?req.getSimulator():FlagEnum.FALSE.getKey());
+        res.setSystemLan(StringUtils.isNotBlank(req.getSystemLan())?req.getSystemLan():NO_VAL);
+        res.setSysVer(StringUtils.isNotBlank(req.getSysVer())?req.getSysVer():NO_VAL);
+        res.setTimeZone(StringUtils.isNotBlank(req.getTimeZone())?req.getTimeZone():NO_VAL);
+        res.setTransLogId(req.getTransLogId());
+        res.setAndroidId(StringUtils.isNotBlank(req.getAndroidId())?req.getAndroidId():NO_VAL);
+        res.setIsVirtualApp(StringUtils.isNotBlank(req.getIsVirtualApp())?req.getIsVirtualApp():FlagEnum.FALSE.getKey());
+        return res;
     }
 }

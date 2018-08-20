@@ -1,7 +1,9 @@
 package com.example.demo.utils;
 
 
+import com.example.demo.model.AndroidDeviceInfoDO;
 import com.example.demo.model.PcDeviceInfoDO;
+import com.example.demo.model.bo.AndroidDeviceInfoBO;
 import com.example.demo.model.bo.PcDeviceInfoBO;
 import org.springframework.util.StringUtils;
 
@@ -124,7 +126,71 @@ public class CommonUtil {
         return infoDO;
     }
 
-
+    /**
+     * 转换为hash
+     * @return 转换结果
+     */
+    public static AndroidDeviceInfoDO toHash(AndroidDeviceInfoBO infoBO){
+        AndroidDeviceInfoDO infoDO = new AndroidDeviceInfoDO();
+        if (!StringUtils.isEmpty(infoBO.getDeviceName())) {
+            infoDO.setDeviceName(infoBO.getDeviceName().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getCpu())) {
+            infoDO.setCpu(infoBO.getCpu().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getUnitType())) {
+            infoDO.setUnitType(infoBO.getUnitType().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getSysVer())) {
+            infoDO.setSysVer(infoBO.getSysVer().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getImei())) {
+            infoDO.setImei(ParamCheckUtil.strCompare(infoBO.getImei()).hashCode());
+            infoDO.setImeiStr(infoBO.getImei());
+        }
+        if (!StringUtils.isEmpty(infoBO.getSimulator())) {
+            infoDO.setSimulator(infoBO.getSimulator().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getTimeZone())) {
+            infoDO.setTimeZone(infoBO.getTimeZone().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getSystemLan())) {
+            infoDO.setSystemLan(infoBO.getSystemLan().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getIsRoot())) {
+            infoDO.setIsRoot(infoBO.getIsRoot().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getFontNum())) {
+            infoDO.setFontNum(infoBO.getFontNum().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getScreenRes())) {
+            infoDO.setScreenRes(infoBO.getScreenRes().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getBios())) {
+            infoDO.setBios(infoBO.getBios().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getImsi())) {
+            infoDO.setImsi(ParamCheckUtil.strCompare(infoBO.getImsi()).hashCode());
+            infoDO.setImsiStr(infoBO.getImsi());
+        }
+        if (!StringUtils.isEmpty(infoBO.getPhoneNum())) {
+            infoDO.setPhoneNum(ParamCheckUtil.strCompare(infoBO.getPhoneNum()).hashCode());
+            infoDO.setPhoneNUmStr(infoBO.getPhoneNum());
+        }
+        if (!StringUtils.isEmpty(infoBO.getMac())) {
+            infoDO.setMac(infoBO.getMac().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getFcpu())) {
+            infoDO.setFcpu(infoBO.getFcpu().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getTotalSize())) {
+            infoDO.setTotalSize(infoBO.getTotalSize().hashCode());
+        }
+        if (!StringUtils.isEmpty(infoBO.getAndroidId())) {
+            infoDO.setAndroidId(infoBO.getAndroidId().hashCode());
+        }
+        return infoDO;
+    }
     /**
      * 判断请求所属算分逻辑
      *

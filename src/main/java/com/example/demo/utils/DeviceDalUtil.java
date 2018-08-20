@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.math.BigDecimal;
 import java.util.Map;
 
+import static com.example.demo.common.CommonConstant.NO_VAL;
 import static com.example.demo.utils.SqlConstant.*;
 
 
@@ -21,7 +22,7 @@ import static com.example.demo.utils.SqlConstant.*;
 public class DeviceDalUtil {
     private static int NUM_TWO = 2;
     private static int NUM_THREE = 3;
-    private static String SYMBOL = ",";
+    public static String SYMBOL = ",";
     private DeviceDalUtil(){}
 
     /**
@@ -103,13 +104,35 @@ public class DeviceDalUtil {
     public static void compareTemplate(Object sourceValue, Object tarValue, BigDecimal grade, DeviceGradeResDTO res,
                                        Map<String, Object> score, Map<String, Object> lose, String fieldName){
         if (sourceValue.equals(tarValue)){
-            res.setScore(null == res.getScore()?BigDecimal.valueOf(0):res.getScore().add(grade));
+            res.setScore(null == res.getScore()?grade:res.getScore().add(grade));
             score.put(fieldName, grade);
         } else {
             if (USER_AGENT.equals(fieldName)){
                 return;
             }
             lose.put(fieldName, grade);
+        }
+    }
+
+
+
+
+    /**
+     * 字段匹配模板
+     */
+    public static void normalCompareTemplate(Object sourceValue, Object tarValue, BigDecimal grade, DeviceGradeResDTO res,
+                                             Map<String, Object> score, Map<String, Object> lose, String fieldName){
+
+        if (NO_VAL.equals(sourceValue) || NO_VAL.equals(tarValue)){
+            lose.put(fieldName, grade);
+            return;
+        }
+
+        if (!sourceValue.equals(tarValue)){
+            res.setScore(null == res.getScore()?grade:res.getScore().add(grade));
+            score.put(fieldName,grade);
+        } else {
+          lose.put(fieldName,grade);
         }
     }
 

@@ -1,6 +1,8 @@
 package com.example.demo.utils;
 
+import com.example.demo.common.AndroidSearchSql;
 import com.example.demo.common.PcSearchSql;
+import com.example.demo.model.AndroidDeviceInfoDO;
 import com.example.demo.model.PcDeviceInfoDO;
 import com.example.demo.model.dto.DeviceGradeResDTO;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +11,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.example.demo.common.CommonConstant.DEVICE_SCORE;
 import static com.example.demo.common.CommonConstant.PC_DEVICE_SCORE;
 import static com.example.demo.utils.SqlConstant.*;
 
@@ -120,7 +123,7 @@ public class DeviceGradeUtil {
      *
      */
 
-    public static DeviceGradeResDTO pcGrade(PcDeviceInfoDO sourceDo, PcDeviceInfoDO tarDo, DeviceGradeResDTO res){
+    public static void pcGrade(PcDeviceInfoDO sourceDo, PcDeviceInfoDO tarDo, DeviceGradeResDTO res){
         Map<String, Object> score = new HashMap(100);
         Map<String, Object> lose = new HashMap(100);
 
@@ -128,7 +131,7 @@ public class DeviceGradeUtil {
 
         if (!PcSearchSql.judgeStairFeature(sourceDo, tarDo)) {
             res.setResult("新设备，一级特征不匹配");
-            return res;
+            return;
         }
 
         //flag 1：非IE8JS 2：非IE8H5 3：IE8JS 4：IE8H5
@@ -161,7 +164,38 @@ public class DeviceGradeUtil {
         }else {
             res.setResult("新设备，特征分值占比="+divide);
         }
-        return res;
     }
 
+
+    /**
+     * 安卓设备评分
+     *
+     * @return 评分结果
+     */
+
+    public static void androidGrade(AndroidDeviceInfoDO sourceDo, AndroidDeviceInfoDO tarDo,
+                                                 DeviceGradeResDTO res){
+
+        Map<String, Object> score = new HashMap(100);
+        Map<String, Object> lose = new HashMap(100);
+
+        if (!AndroidSearchSql.judgeStairFeature(sourceDo,tarDo)) {
+            res.setResult("新设备，一级特征不匹配");
+            return;
+        }
+
+        AndroidSearchSql.buildMatchSql(sourceDo, tarDo,res,score, lose);
+
+        res.setScoreField(score.toString());
+        log.info("匹配加分字段详情:{}",score.toString());
+
+        res.setLoseField(lose.toString());
+        log.info("匹配未加分字段详情:{}",lose.toString());
+
+        if (res.getScore().compareTo(DEVICE_SCORE) == -BigDecimal.ONE.intValue()) {
+            res.setResult("老设备");
+        }else {
+            res.setResult("新设备");
+        }
+    }
 }

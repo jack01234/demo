@@ -1,5 +1,6 @@
 package com.example.demo.utils;
 
+import com.example.demo.model.bo.AndroidDeviceInfoBO;
 import com.example.demo.model.bo.PcDeviceInfoBO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -145,6 +146,55 @@ public class MessageParseUtil {
         return bo;
     }
 
+    /**
+     * 安卓请求信息处理
+     *
+     *
+     * @param message 消息内容
+     * @return 处理结果
+     */
+
+    public static AndroidDeviceInfoBO androidMessageHandle(String message){
+        AndroidDeviceInfoBO bo = new AndroidDeviceInfoBO();
+
+        bo.setDeviceName(strSub(SqlConstant.DEVICE_NAME,SqlConstant.CPU, message));
+
+        bo.setCpu(strSub(SqlConstant.CPU, SqlConstant.UNIT_TYPE, message));
+
+        bo.setUnitType(strSub(SqlConstant.UNIT_TYPE, SqlConstant.SYS_VER, message));
+
+        bo.setSysVer(strSub(SqlConstant.SYS_VER, SqlConstant.IMEI, message));
+
+        bo.setImei(strSub(SqlConstant.IMEI, SqlConstant.SIMULATOR, message));
+
+        bo.setSimulator(strSub(SqlConstant.SIMULATOR, SqlConstant.TIME_ZONE, message));
+
+        bo.setTimeZone(strSub(SqlConstant.TIME_ZONE, SqlConstant.SYSTEM_LAN, message));
+
+        bo.setSystemLan(strSub(SqlConstant.SYSTEM_LAN, SqlConstant.IS_ROOT, message));
+
+        bo.setIsRoot(strSub(SqlConstant.IS_ROOT,SqlConstant.FONTNUM, message));
+
+        bo.setFontNum(strSub(SqlConstant.FONTNUM, SqlConstant.SCREENRES, message));
+
+        bo.setScreenRes(strSub(SqlConstant.SCREENRES, SqlConstant.BIOS, message));
+
+        bo.setBios(strSub(SqlConstant.BIOS,SqlConstant.IMSI, message));
+
+        bo.setImsi(strSub(SqlConstant.IMSI, SqlConstant.PHONENUM, message));
+
+        bo.setPhoneNum(strSub(SqlConstant.PHONENUM, SqlConstant.MAC, message));
+
+        bo.setMac(strSub(SqlConstant.MAC, SqlConstant.FCPU, message));
+
+        bo.setFcpu(strSub(SqlConstant.FCPU, SqlConstant.TOTAL_SIZE, message));
+
+        bo.setTotalSize(strSub(SqlConstant.TOTAL_SIZE, SqlConstant.ANDROID_ID, message));
+
+        bo.setAndroidId(strSub(SqlConstant.ANDROID_ID, "isVirtualApp", message));
+
+        return bo;
+    }
 
     /**
      * 字段截取
