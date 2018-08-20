@@ -1,0 +1,17 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: device-ip
+  dubbo:
+    registry:
+      protocol: zookeeper
+      address: 10.0.21.58:2181
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.0.19.144:1100/eureka/,http://10.0.19.145:1100/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
