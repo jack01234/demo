@@ -22,7 +22,7 @@ public class DeviceGradeResDTO implements Serializable {
     /**
      * 分数
      */
-    private BigDecimal score;
+    private BigDecimal score = new BigDecimal(0);
 
     /**
      * 加分字段

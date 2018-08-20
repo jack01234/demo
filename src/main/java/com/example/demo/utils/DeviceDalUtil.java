@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.math.BigDecimal;
 import java.util.Map;
 
-import static com.example.demo.common.CommonConstant.NO_VAL;
 import static com.example.demo.utils.SqlConstant.*;
 
 
@@ -123,7 +122,7 @@ public class DeviceDalUtil {
     public static void normalCompareTemplate(Object sourceValue, Object tarValue, BigDecimal grade, DeviceGradeResDTO res,
                                              Map<String, Object> score, Map<String, Object> lose, String fieldName){
 
-        if (NO_VAL.equals(sourceValue) || NO_VAL.equals(tarValue)){
+        if (NAVAL_HASH.equals(sourceValue) || NAVAL_HASH.equals(tarValue)){
             lose.put(fieldName, grade);
             return;
         }
