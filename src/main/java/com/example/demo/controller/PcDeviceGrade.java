@@ -3,19 +3,20 @@ package com.example.demo.controller;
 import com.example.demo.convert.DeviceSearchConverter;
 import com.example.demo.model.PcDeviceInfoDO;
 import com.example.demo.model.bo.PcDeviceInfoBO;
-import com.example.demo.model.dto.DeviceGradeDTO;
 import com.example.demo.model.dto.DeviceGradeResDTO;
-import com.example.demo.utils.*;
+import com.example.demo.utils.CommonUtil;
+import com.example.demo.utils.DeviceGradeUtil;
+import com.example.demo.utils.MessageParseUtil;
+import com.example.demo.utils.ParamCheckUtil;
 import com.system.ext.logback.util.TraceLogIdUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.math.BigDecimal;
@@ -30,34 +31,31 @@ import static com.example.demo.common.CommonConstant.*;
  */
 @Slf4j
 @Controller
-@RequestMapping(value = "/pc", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/pc")
 @Api(value = "PcDeviceGrade", description = "pc设备特征计分")
 public class PcDeviceGrade {
 
     /**
      * pc 设备特征计分接口
-     * @param req 请求参数
      * @return 分数
      */
 
-    @RequestMapping(value = "/deviceGrade",method = RequestMethod.POST)
+    @RequestMapping(value = "/deviceGrade",method = RequestMethod.GET)
     @ApiOperation(value = "pc设备特征计分",notes = "pc设备特征计分接口")
     @ResponseBody
-    public DeviceGradeResDTO deviceGrade(@RequestBody DeviceGradeDTO req){
+    public DeviceGradeResDTO deviceGrade(@RequestParam String source,@RequestParam String target){
         MDC.put("TRACE_LOG_ID",TraceLogIdUtil.createTraceLogId());
 
         DeviceGradeResDTO res = new DeviceGradeResDTO();
 
-        log.info("call pcDeviceGrade param:{}",req);
+        log.info("call pcDeviceGrade param:{},{}",source,target);
 
         try {
             //1.参数解析
-            PcDeviceInfoBO sourceBo = MessageParseUtil.messageHandle(AesUtil.decrypt(req.getSource(),
-                    "DEVICE-AES000002"));
+            PcDeviceInfoBO sourceBo = MessageParseUtil.messageHandle(source);
             log.info("call pcDeviceGrade 处理前源参数：{}",sourceBo);
 
-            PcDeviceInfoBO tarBo = MessageParseUtil.messageHandle(AesUtil.decrypt(req.getTarget(),
-                    "DEVICE-AES000002"));
+            PcDeviceInfoBO tarBo = MessageParseUtil.messageHandle(target);
 
             log.info("call pcDeviceGrade 处理前目标参数：{}",tarBo);
 
