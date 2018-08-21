@@ -1,5 +1,6 @@
 server:
   port: 9091
+  max-http-header-size: 1048576
 spring:
   application:
     name: device-ip

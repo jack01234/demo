@@ -30,7 +30,7 @@ public class MessEncryptController {
 
         String result = AesUtil.encrypt(message, "DEVICE-AES000002");
 
-        log.info("success encrypt result：{}",message);
+        log.info("success encrypt result：{}",result);
         MessEncryptResDTO res = new MessEncryptResDTO();
         res.setMessage(result);
         return res;
