@@ -37,7 +37,7 @@ public class AndroidDeviceGrade {
      */
 
     @RequestMapping(value = "/deviceGrade",method = RequestMethod.GET)
-    @ApiOperation(value = "pc设备特征计分",notes = "pc设备特征计分接口")
+    @ApiOperation(value = "pc设备特征计分",notes = "pc设备特征计分接口,source和target参数取自于search项目请求参数")
     @ResponseBody
     public DeviceGradeResDTO deviceGrade(@RequestParam String source, @RequestParam String target){
         MDC.put("TRACE_LOG_ID",TraceLogIdUtil.createTraceLogId());
