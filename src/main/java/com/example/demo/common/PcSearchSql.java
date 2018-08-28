@@ -72,6 +72,11 @@ public class PcSearchSql {
         buildCommonSql(sourceDo, tarDo, weightMap, res, score, lose);
 
 
+        //浏览器支持的语言
+
+        DeviceDalUtil.compareTemplate(sourceDo.getLanguage(),tarDo.getLanguage(),weightMap.get(LANGUAGE), res, score,
+                    lose, LANGUAGE);
+
         //设备内存
         DeviceDalUtil.compareTemplate(sourceDo.getDeviceMemory(),tarDo.getDeviceMemory(),weightMap.get(DEVICE_MEMORY), res,
                 score, lose, DEVICE_MEMORY);
@@ -220,6 +225,82 @@ public class PcSearchSql {
 
     }
 
+
+    /**
+     * 公共特征匹配SQL拼接
+     *
+     * @param weightMap 特征分数
+     * @return SQL
+     *
+     */
+
+    private static void buildClientCommonSql(PcDeviceInfoDO sourceDo, PcDeviceInfoDO tarDo, Map<String, BigDecimal> weightMap,
+                                       DeviceGradeResDTO res, Map<String, Object> score, Map<String, Object> lose){
+
+        //浏览器
+        if (NOT_FLAG.equals(sourceDo.getPretendResolution())) {
+            DeviceDalUtil.compareTemplate(sourceDo.getResolution(),tarDo.getResolution(),weightMap.get(RESOLUTION), res,
+                    score, lose, RESOLUTION);
+        }
+
+        //用户代理
+        if (NOT_FLAG.equals(sourceDo.getPretendBrowser()) && NOT_FLAG.equals(sourceDo.getPretendSystem())) {
+
+            DeviceDalUtil.compareTemplate(sourceDo.getUserAgent(),tarDo.getUserAgent(),weightMap.get(USER_AGENT), res,
+                    score, lose, USER_AGENT);
+
+        }
+
+        //IP和evercookie
+        if (sourceDo.getEverCookie().equals(tarDo.getEverCookie())){
+            res.setScore(res.getScore().add(weightMap.get(EVER_COOKIE)));
+            score.put(EVER_COOKIE,weightMap.get(EVER_COOKIE));
+        } else if (sourceDo.getExtend1().equals(tarDo.getExtend1())) {
+            res.setScore(res.getScore().add(weightMap.get(EXTEND1)));
+            score.put("ip",weightMap.get(EXTEND1));
+        } else {
+            lose.put(EVER_COOKIE,weightMap.get(EVER_COOKIE));
+            lose.put("ip",weightMap.get(EXTEND1));
+        }
+
+
+
+        //浏览器session存储
+        DeviceDalUtil.compareTemplate(sourceDo.getSessionStorage(),tarDo.getSessionStorage(),weightMap.get(SESSION_STORAGE), res,
+                score, lose, SESSION_STORAGE);
+
+
+        //浏览器本地存储
+        DeviceDalUtil.compareTemplate(sourceDo.getLocalStorage(),tarDo.getLocalStorage(),weightMap.get(LOCAL_STORAGE), res,
+                score, lose, LOCAL_STORAGE);
+
+
+        //浏览器中对数据库操作的方法
+        DeviceDalUtil.compareTemplate(sourceDo.getOpenDatabase(),tarDo.getOpenDatabase(),weightMap.get(OPEN_DATABASE), res,
+                score, lose, OPEN_DATABASE);
+
+
+        //jsFont
+        DeviceDalUtil.compareTemplate(sourceDo.getJsFonts(),tarDo.getJsFonts(),weightMap.get(JS_FONTS), res,
+                score, lose, JS_FONTS);
+
+        //存储在客户端本地的 NoSQL 数据库
+        DeviceDalUtil.compareTemplate(sourceDo.getHashIndexedDB(),tarDo.getHashIndexedDB(),weightMap.get(HASHINDEX_DB), res,
+                score, lose, HASHINDEX_DB);
+
+        //浏览器插件
+        DeviceDalUtil.compareTemplate(sourceDo.getPlugins(),tarDo.getPlugins(),weightMap.get(PLUGINS), res,
+                score, lose, PLUGINS);
+
+        //时区
+        DeviceDalUtil.compareTemplate(sourceDo.getTimeZone(),tarDo.getTimeZone(),weightMap.get(TIME_ZONE), res,
+                score, lose, TIME_ZONE);
+
+        //WebGL的渲染器
+        DeviceDalUtil.compareTemplate(sourceDo.getWebglRenderer(),tarDo.getWebglRenderer(),weightMap.get(WEBGL_RENDERER), res,
+                score, lose, WEBGL_RENDERER);
+
+    }
     /**
      *userAgent 的相似度计分
      *

@@ -78,8 +78,8 @@ public class DeviceGradeUtil {
         /**非IE8浏览器H5特征分数**/
 
         clientMap.put(USER_AGENT,BigDecimal.valueOf(0.741));
-        clientMap.put(EVER_COOKIE,BigDecimal.valueOf(0.4));
-        clientMap.put(EXTEND1,BigDecimal.valueOf(0.4));
+        clientMap.put(EVER_COOKIE,BigDecimal.valueOf(0.74));
+        clientMap.put(EXTEND1,BigDecimal.valueOf(0.74));
         clientMap.put(LANGUAGE,BigDecimal.valueOf(0.32));
         clientMap.put(DEVICE_MEMORY,BigDecimal.valueOf(0.35));
         clientMap.put(RESOLUTION,BigDecimal.valueOf(0.366));
@@ -89,11 +89,11 @@ public class DeviceGradeUtil {
         clientMap.put(OPEN_DATABASE,BigDecimal.valueOf(0.037));
         clientMap.put(HASHINDEX_DB,BigDecimal.valueOf(0.037));
         clientMap.put(PLUGINS,BigDecimal.valueOf(0.081));
-        clientMap.put(CANVAS_ID,BigDecimal.valueOf(0.42));
+        clientMap.put(CANVAS_ID,BigDecimal.valueOf(0.4));
         clientMap.put(WEBGL_RENDERER,BigDecimal.valueOf(0.165));
         clientMap.put(AD_BLOCK,BigDecimal.valueOf(0.029));
         clientMap.put(JS_FONTS,BigDecimal.valueOf(0.033));
-        clientMap.put(VIDEO_ID,BigDecimal.valueOf(0.72));
+        clientMap.put(VIDEO_ID,BigDecimal.valueOf(0.4));
 
 
         /**IE8浏览器H5特征分数**/
