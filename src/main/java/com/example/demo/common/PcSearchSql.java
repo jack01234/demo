@@ -120,7 +120,6 @@ public class PcSearchSql {
 
 
         //一种屏蔽广告的插件
-        //一种屏蔽广告的插件
         DeviceDalUtil.compareTemplate(sourceDo.getAdBlock(),tarDo.getAdBlock(),weightMap.get(AD_BLOCK), res,
                 score, lose, AD_BLOCK);
 
