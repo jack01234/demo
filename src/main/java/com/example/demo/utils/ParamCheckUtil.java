@@ -27,54 +27,42 @@ public class ParamCheckUtil {
     public static boolean paramsCheck(PcDeviceInfoBO req){
         if ("PC".equalsIgnoreCase(req.getDeviceSys())) {
             if (NO_VAL.equals(req.getWebglRenderer()) && NO_VAL.equals(req.getAudioId()) &&
-                    NO_VAL.equals(req.getVideoId()) && NO_VAL.equals(req.getMicrophone())) {
+                    NO_VAL.equals(req.getVideoId())) {
                 return true;
             }
-            if (NO_VAL.equals(req.getAudioId()) && NO_VAL.equals(req.getVideoId()) &&
-                    NO_VAL.equals(req.getMicrophone()) && NO_VAL.equals(req.getCanvasId())) {
-                return true;
-            }
-
-            if (NO_VAL.equals(req.getVideoId()) && NO_VAL.equals(req.getMicrophone()) &&
-                    NO_VAL.equals(req.getCanvasId()) && NO_VAL.equals(req.getWebglRenderer())) {
+            if (NO_VAL.equals(req.getAudioId()) && NO_VAL.equals(req.getVideoId())
+                    && NO_VAL.equals(req.getCanvasId())) {
                 return true;
             }
 
-            if (NO_VAL.equals(req.getMicrophone()) && NO_VAL.equals(req.getCanvasId()) &&
-                    NO_VAL.equals(req.getWebglRenderer()) && NO_VAL.equals(req.getAudioId())) {
+            if (NO_VAL.equals(req.getVideoId()) && NO_VAL.equals(req.getCanvasId()) &&
+                    NO_VAL.equals(req.getWebglRenderer())) {
                 return true;
             }
+
             if (NO_VAL.equals(req.getCanvasId()) && NO_VAL.equals(req.getWebglRenderer()) &&
-                    NO_VAL.equals(req.getAudioId()) && NO_VAL.equals(req.getVideoId())) {
+                    NO_VAL.equals(req.getAudioId())) {
                 return true;
             }
 
             if (NO_VAL.equals(req.getWebglRenderer())&&NO_VAL.equals(req.getAudioId()) &&
-                    NO_VAL.equals(req.getVideoId()) && NO_VAL.equals(req.getMicrophone()) &&
-                    NO_VAL.equals(req.getCanvasId())) {
-                return true;
-            }
-        } else {
-            if (NO_VAL.equals(req.getWebglRenderer()) &&
-                    NO_VAL.equals(req.getVideoId()) && NO_VAL.equals(req.getMicrophone())) {
-                return true;
-            }
-            if (NO_VAL.equals(req.getVideoId()) &&
-                    NO_VAL.equals(req.getMicrophone()) && NO_VAL.equals(req.getCanvasId())) {
-                return true;
-            }
-            if (NO_VAL.equals(req.getWebglRenderer()) &&
                     NO_VAL.equals(req.getVideoId()) && NO_VAL.equals(req.getCanvasId())) {
                 return true;
             }
-            if (NO_VAL.equals(req.getMicrophone()) &&
-                    NO_VAL.equals(req.getCanvasId()) && NO_VAL.equals(req.getWebglRenderer())) {
+        } else {
+            if (NO_VAL.equals(req.getWebglRenderer()) && NO_VAL.equals(req.getVideoId())) {
+                return true;
+            }
+            if (NO_VAL.equals(req.getVideoId()) && NO_VAL.equals(req.getCanvasId())) {
+                return true;
+            }
+
+            if (NO_VAL.equals(req.getCanvasId()) && NO_VAL.equals(req.getWebglRenderer())) {
                 return true;
             }
 
             if (NO_VAL.equals(req.getWebglRenderer())&&
-                    NO_VAL.equals(req.getVideoId()) && NO_VAL.equals(req.getMicrophone()) &&
-                    NO_VAL.equals(req.getCanvasId())) {
+                    NO_VAL.equals(req.getVideoId()) && NO_VAL.equals(req.getCanvasId())) {
                 return true;
             }
         }

@@ -95,28 +95,6 @@ public class DeviceDalUtil {
 
 
     /**
-     *
-     * 值比较
-     *
-     *
-     */
-    public static void compareTemplate(Object sourceValue, Object tarValue, BigDecimal grade, DeviceGradeResDTO res,
-                                       Map<String, Object> score, Map<String, Object> lose, String fieldName){
-        if (sourceValue.equals(tarValue)){
-            res.setScore(null == res.getScore()?grade:res.getScore().add(grade));
-            score.put(fieldName, grade);
-        } else {
-            if (USER_AGENT.equals(fieldName)){
-                return;
-            }
-            lose.put(fieldName, grade);
-        }
-    }
-
-
-
-
-    /**
      * 字段匹配模板
      */
     public static void normalCompareTemplate(Object sourceValue, Object tarValue, BigDecimal grade, DeviceGradeResDTO res,

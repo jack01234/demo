@@ -26,7 +26,13 @@ public class CommonConstant {
     /**
      * pc端设备ua评分
      */
-    public static final BigDecimal PC_UA_SCORE = BigDecimal.valueOf(0.978);
+    public static final BigDecimal PC_UA_SCORE = BigDecimal.valueOf(0.88);
+
+    /**
+     * pc端设备ua相似度评分
+     */
+    public static final BigDecimal PC_ORI_UA_SCORE = BigDecimal.valueOf(0.978);
+
     /**
      * pc端设备总分
      */

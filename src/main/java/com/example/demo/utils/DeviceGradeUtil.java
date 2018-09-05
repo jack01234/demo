@@ -152,7 +152,7 @@ public class DeviceGradeUtil {
                 PcSearchSql.buildIe8CliOrPcMatchSql(sourceDo, tarDo,ieClientMap, res, score, lose);
         }
 
-        PcSearchSql.numUaScore(sourceDo, tarDo.getUserAgent(),res, score, lose);
+        PcSearchSql.numUaScore(sourceDo, tarDo, res, score, lose);
 
         res.setScoreField(score.toString());
         log.info("匹配加分字段详情:{}",score.toString());

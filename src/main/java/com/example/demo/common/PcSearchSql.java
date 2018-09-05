@@ -3,13 +3,14 @@ package com.example.demo.common;
 
 import com.example.demo.model.PcDeviceInfoDO;
 import com.example.demo.model.dto.DeviceGradeResDTO;
-import com.example.demo.utils.DeviceDalUtil;
+import com.example.demo.utils.CommonUtil;
 import com.example.demo.utils.LevenshteinUtil;
 import com.example.demo.utils.SqlConstant;
 
 import java.math.BigDecimal;
 import java.util.Map;
 
+import static com.example.demo.common.CommonConstant.PC_ORI_UA_SCORE;
 import static com.example.demo.common.CommonConstant.PC_UA_SCORE;
 import static com.example.demo.utils.DeviceGradeUtil.*;
 import static com.example.demo.utils.SqlConstant.*;
@@ -36,27 +37,27 @@ public class PcSearchSql {
         buildCommonSql(sourceDo, tarDo, weightMap, res, score, lose);
 
         //设备内存
-        DeviceDalUtil.compareTemplate(sourceDo.getDeviceMemory(),tarDo.getDeviceMemory(),weightMap.get(DEVICE_MEMORY), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getDeviceMemory(),tarDo.getDeviceMemory(),weightMap.get(DEVICE_MEMORY), res,
                 score, lose, DEVICE_MEMORY);
 
 
         //视屏ID
-        DeviceDalUtil.compareTemplate(sourceDo.getVideoId(),tarDo.getVideoId(),weightMap.get(VIDEO_ID), res,
+        PcSqlTemplate.novalScoreTemplate(sourceDo.getVideoId(),tarDo.getVideoId(),weightMap.get(VIDEO_ID), res,
                 score, lose, VIDEO_ID);
 
 
         //浏览器设备指纹
-        DeviceDalUtil.compareTemplate(sourceDo.getCanvasId(),tarDo.getCanvasId(),weightMap.get(CANVAS_ID), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getCanvasId(),tarDo.getCanvasId(),weightMap.get(CANVAS_ID), res,
                 score, lose, CANVAS_ID);
 
 
         //音频ID
-        DeviceDalUtil.compareTemplate(sourceDo.getAudioId(),tarDo.getAudioId(),weightMap.get(AUDIO_ID), res,
+        PcSqlTemplate.novalScoreTemplate(sourceDo.getAudioId(),tarDo.getAudioId(),weightMap.get(AUDIO_ID), res,
                 score, lose, AUDIO_ID);
 
 
         //一种屏蔽广告的插件
-        DeviceDalUtil.compareTemplate(sourceDo.getAdBlock(),tarDo.getAdBlock(),weightMap.get(AD_BLOCK), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getAdBlock(),tarDo.getAdBlock(),weightMap.get(AD_BLOCK), res,
                 score, lose, AD_BLOCK);
     }
 
@@ -74,24 +75,24 @@ public class PcSearchSql {
 
         //浏览器支持的语言
 
-        DeviceDalUtil.compareTemplate(sourceDo.getLanguage(),tarDo.getLanguage(),weightMap.get(LANGUAGE), res, score,
+        PcSqlTemplate.compareTemplate(sourceDo.getLanguage(),tarDo.getLanguage(),weightMap.get(LANGUAGE), res, score,
                     lose, LANGUAGE);
 
         //设备内存
-        DeviceDalUtil.compareTemplate(sourceDo.getDeviceMemory(),tarDo.getDeviceMemory(),weightMap.get(DEVICE_MEMORY), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getDeviceMemory(),tarDo.getDeviceMemory(),weightMap.get(DEVICE_MEMORY), res,
                 score, lose, DEVICE_MEMORY);
 
 
         //视屏ID
-        DeviceDalUtil.compareTemplate(sourceDo.getVideoId(),tarDo.getVideoId(),weightMap.get(VIDEO_ID), res,
+        PcSqlTemplate.novalScoreTemplate(sourceDo.getVideoId(),tarDo.getVideoId(),weightMap.get(VIDEO_ID), res,
                 score, lose, VIDEO_ID);
 
         //浏览器设备指纹
-        DeviceDalUtil.compareTemplate(sourceDo.getCanvasId(),tarDo.getCanvasId(),weightMap.get(CANVAS_ID), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getCanvasId(),tarDo.getCanvasId(),weightMap.get(CANVAS_ID), res,
                 score, lose, CANVAS_ID);
 
         //一种屏蔽广告的插件
-        DeviceDalUtil.compareTemplate(sourceDo.getAdBlock(),tarDo.getAdBlock(),weightMap.get(AD_BLOCK), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getAdBlock(),tarDo.getAdBlock(),weightMap.get(AD_BLOCK), res,
                 score, lose, AD_BLOCK);
     }
 
@@ -120,7 +121,7 @@ public class PcSearchSql {
 
 
         //一种屏蔽广告的插件
-        DeviceDalUtil.compareTemplate(sourceDo.getAdBlock(),tarDo.getAdBlock(),weightMap.get(AD_BLOCK), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getAdBlock(),tarDo.getAdBlock(),weightMap.get(AD_BLOCK), res,
                 score, lose, AD_BLOCK);
 
     }
@@ -151,75 +152,113 @@ public class PcSearchSql {
     private static void buildCommonSql(PcDeviceInfoDO sourceDo, PcDeviceInfoDO tarDo, Map<String, BigDecimal> weightMap,
                                        DeviceGradeResDTO res, Map<String, Object> score, Map<String, Object> lose){
 
+        boolean sourceFlag = NOT_FLAG.equals(sourceDo.getPretendBrowser()) &&
+                NOT_FLAG.equals(sourceDo.getPretendSystem());
+
+        boolean tarFlag = NOT_FLAG.equals(tarDo.getPretendBrowser()) &&
+                NOT_FLAG.equals(tarDo.getPretendSystem());
+
+
         //浏览器
-        if (NOT_FLAG.equals(sourceDo.getPretendResolution())) {
-            DeviceDalUtil.compareTemplate(sourceDo.getResolution(),tarDo.getResolution(),weightMap.get(RESOLUTION), res,
-                    score, lose, RESOLUTION);
+        if (NOT_FLAG.equals(sourceDo.getPretendResolution()) && sourceFlag) {
+            PcSqlTemplate.resTemplate(sourceDo.getResolution(),tarDo.getResolution(),weightMap.get(RESOLUTION), res,
+                    score, lose, RESOLUTION, !tarFlag || !NOT_FLAG.equals(tarDo.getPretendResolution()));
+        } else {
+
+            PcSqlTemplate.scoreTemplate(weightMap.get(RESOLUTION), res, score,RESOLUTION);
         }
 
         //浏览器支持的语言
         if (NOT_FLAG.equals(sourceDo.getHasLiedLanguages())) {
 
-            DeviceDalUtil.compareTemplate(sourceDo.getLanguage(),tarDo.getLanguage(),weightMap.get(LANGUAGE), res, score,
-                    lose, LANGUAGE);
+            PcSqlTemplate.resTemplate(sourceDo.getLanguage(),tarDo.getLanguage(),weightMap.get(LANGUAGE), res, score,
+                    lose, LANGUAGE, !NOT_FLAG.equals(tarDo.getHasLiedLanguages()));
 
+        } else {
+
+            PcSqlTemplate.scoreTemplate(weightMap.get(LANGUAGE), res, score,LANGUAGE);
         }
 
         //用户代理
-        if (NOT_FLAG.equals(sourceDo.getPretendBrowser()) && NOT_FLAG.equals(sourceDo.getPretendSystem())) {
+        if (sourceFlag) {
 
-            DeviceDalUtil.compareTemplate(sourceDo.getUserAgent(),tarDo.getUserAgent(),weightMap.get(USER_AGENT), res,
-                    score, lose, USER_AGENT);
+            PcSqlTemplate.resTemplate(sourceDo.getUserAgent(),tarDo.getUserAgent(),weightMap.get(USER_AGENT), res,
+                    score, lose, USER_AGENT, !tarFlag);
 
+        }else {
+
+            PcSqlTemplate.scoreTemplate(weightMap.get(USER_AGENT), res, score,USER_AGENT);
         }
 
-        //IP和evercookie
-        if (sourceDo.getEverCookie().equals(tarDo.getEverCookie())){
-            res.setScore(res.getScore().add(weightMap.get(EVER_COOKIE)));
-            score.put(EVER_COOKIE,weightMap.get(EVER_COOKIE));
-        } else if (sourceDo.getExtend1().equals(tarDo.getExtend1())) {
-            res.setScore(res.getScore().add(weightMap.get(EXTEND1)));
-            score.put("ip",weightMap.get(EXTEND1));
+        if (sourceFlag) {
+
+            //IP和evercookie
+            if (sourceDo.getEverCookie().equals(tarDo.getEverCookie())){
+                res.setScore(res.getScore().add(weightMap.get(EVER_COOKIE)));
+                score.put(EVER_COOKIE,weightMap.get(EVER_COOKIE));
+            } else if (sourceDo.getExtend1().equals(tarDo.getExtend1()) && tarFlag) {
+                res.setScore(res.getScore().add(weightMap.get(EXTEND1)));
+                score.put("ip",weightMap.get(EXTEND1));
+            } else {
+                lose.put(EVER_COOKIE,weightMap.get(EVER_COOKIE));
+                lose.put("ip",weightMap.get(EXTEND1));
+            }
         } else {
-          lose.put(EVER_COOKIE,weightMap.get(EVER_COOKIE));
-          lose.put("ip",weightMap.get(EXTEND1));
+
+            PcSqlTemplate.compareTemplate(sourceDo.getEverCookie(), tarDo.getEverCookie(), weightMap.get(EVER_COOKIE),
+                    res, score,lose,EVER_COOKIE);
         }
+
 
 
 
         //浏览器session存储
-        DeviceDalUtil.compareTemplate(sourceDo.getSessionStorage(),tarDo.getSessionStorage(),weightMap.get(SESSION_STORAGE), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getSessionStorage(),tarDo.getSessionStorage(),weightMap.get(SESSION_STORAGE), res,
                 score, lose, SESSION_STORAGE);
 
 
         //浏览器本地存储
-        DeviceDalUtil.compareTemplate(sourceDo.getLocalStorage(),tarDo.getLocalStorage(),weightMap.get(LOCAL_STORAGE), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getLocalStorage(),tarDo.getLocalStorage(),weightMap.get(LOCAL_STORAGE), res,
                 score, lose, LOCAL_STORAGE);
 
 
         //浏览器中对数据库操作的方法
-        DeviceDalUtil.compareTemplate(sourceDo.getOpenDatabase(),tarDo.getOpenDatabase(),weightMap.get(OPEN_DATABASE), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getOpenDatabase(),tarDo.getOpenDatabase(),weightMap.get(OPEN_DATABASE), res,
                 score, lose, OPEN_DATABASE);
 
 
         //jsFont
-        DeviceDalUtil.compareTemplate(sourceDo.getJsFonts(),tarDo.getJsFonts(),weightMap.get(JS_FONTS), res,
-                score, lose, JS_FONTS);
+        if (sourceFlag) {
+
+            PcSqlTemplate.resTemplate(sourceDo.getJsFonts(),tarDo.getJsFonts(),weightMap.get(JS_FONTS), res,
+                    score, lose, JS_FONTS, !tarFlag);
+        } else {
+
+            PcSqlTemplate.scoreTemplate(weightMap.get(JS_FONTS), res, score,JS_FONTS);
+        }
+
 
         //存储在客户端本地的 NoSQL 数据库
-        DeviceDalUtil.compareTemplate(sourceDo.getHashIndexedDB(),tarDo.getHashIndexedDB(),weightMap.get(HASHINDEX_DB), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getHashIndexedDB(),tarDo.getHashIndexedDB(),weightMap.get(HASHINDEX_DB), res,
                 score, lose, HASHINDEX_DB);
 
         //浏览器插件
-        DeviceDalUtil.compareTemplate(sourceDo.getPlugins(),tarDo.getPlugins(),weightMap.get(PLUGINS), res,
-                score, lose, PLUGINS);
+        if (sourceFlag){
+
+            PcSqlTemplate.resTemplate(sourceDo.getPlugins(),tarDo.getPlugins(),weightMap.get(PLUGINS), res,
+                    score, lose, PLUGINS, !tarFlag);
+        } else {
+
+            PcSqlTemplate.scoreTemplate(weightMap.get(PLUGINS), res, score,PLUGINS);
+        }
+
 
         //时区
-        DeviceDalUtil.compareTemplate(sourceDo.getTimeZone(),tarDo.getTimeZone(),weightMap.get(TIME_ZONE), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getTimeZone(),tarDo.getTimeZone(),weightMap.get(TIME_ZONE), res,
                 score, lose, TIME_ZONE);
 
         //WebGL的渲染器
-        DeviceDalUtil.compareTemplate(sourceDo.getWebglRenderer(),tarDo.getWebglRenderer(),weightMap.get(WEBGL_RENDERER), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getWebglRenderer(),tarDo.getWebglRenderer(),weightMap.get(WEBGL_RENDERER), res,
                 score, lose, WEBGL_RENDERER);
 
     }
@@ -238,14 +277,14 @@ public class PcSearchSql {
 
         //浏览器
         if (NOT_FLAG.equals(sourceDo.getPretendResolution())) {
-            DeviceDalUtil.compareTemplate(sourceDo.getResolution(),tarDo.getResolution(),weightMap.get(RESOLUTION), res,
+            PcSqlTemplate.compareTemplate(sourceDo.getResolution(),tarDo.getResolution(),weightMap.get(RESOLUTION), res,
                     score, lose, RESOLUTION);
         }
 
         //用户代理
         if (NOT_FLAG.equals(sourceDo.getPretendBrowser()) && NOT_FLAG.equals(sourceDo.getPretendSystem())) {
 
-            DeviceDalUtil.compareTemplate(sourceDo.getUserAgent(),tarDo.getUserAgent(),weightMap.get(USER_AGENT), res,
+            PcSqlTemplate.compareTemplate(sourceDo.getUserAgent(),tarDo.getUserAgent(),weightMap.get(USER_AGENT), res,
                     score, lose, USER_AGENT);
 
         }
@@ -265,38 +304,38 @@ public class PcSearchSql {
 
 
         //浏览器session存储
-        DeviceDalUtil.compareTemplate(sourceDo.getSessionStorage(),tarDo.getSessionStorage(),weightMap.get(SESSION_STORAGE), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getSessionStorage(),tarDo.getSessionStorage(),weightMap.get(SESSION_STORAGE), res,
                 score, lose, SESSION_STORAGE);
 
 
         //浏览器本地存储
-        DeviceDalUtil.compareTemplate(sourceDo.getLocalStorage(),tarDo.getLocalStorage(),weightMap.get(LOCAL_STORAGE), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getLocalStorage(),tarDo.getLocalStorage(),weightMap.get(LOCAL_STORAGE), res,
                 score, lose, LOCAL_STORAGE);
 
 
         //浏览器中对数据库操作的方法
-        DeviceDalUtil.compareTemplate(sourceDo.getOpenDatabase(),tarDo.getOpenDatabase(),weightMap.get(OPEN_DATABASE), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getOpenDatabase(),tarDo.getOpenDatabase(),weightMap.get(OPEN_DATABASE), res,
                 score, lose, OPEN_DATABASE);
 
 
         //jsFont
-        DeviceDalUtil.compareTemplate(sourceDo.getJsFonts(),tarDo.getJsFonts(),weightMap.get(JS_FONTS), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getJsFonts(),tarDo.getJsFonts(),weightMap.get(JS_FONTS), res,
                 score, lose, JS_FONTS);
 
         //存储在客户端本地的 NoSQL 数据库
-        DeviceDalUtil.compareTemplate(sourceDo.getHashIndexedDB(),tarDo.getHashIndexedDB(),weightMap.get(HASHINDEX_DB), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getHashIndexedDB(),tarDo.getHashIndexedDB(),weightMap.get(HASHINDEX_DB), res,
                 score, lose, HASHINDEX_DB);
 
         //浏览器插件
-        DeviceDalUtil.compareTemplate(sourceDo.getPlugins(),tarDo.getPlugins(),weightMap.get(PLUGINS), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getPlugins(),tarDo.getPlugins(),weightMap.get(PLUGINS), res,
                 score, lose, PLUGINS);
 
         //时区
-        DeviceDalUtil.compareTemplate(sourceDo.getTimeZone(),tarDo.getTimeZone(),weightMap.get(TIME_ZONE), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getTimeZone(),tarDo.getTimeZone(),weightMap.get(TIME_ZONE), res,
                 score, lose, TIME_ZONE);
 
         //WebGL的渲染器
-        DeviceDalUtil.compareTemplate(sourceDo.getWebglRenderer(),tarDo.getWebglRenderer(),weightMap.get(WEBGL_RENDERER), res,
+        PcSqlTemplate.compareTemplate(sourceDo.getWebglRenderer(),tarDo.getWebglRenderer(),weightMap.get(WEBGL_RENDERER), res,
                 score, lose, WEBGL_RENDERER);
 
     }
@@ -304,7 +343,7 @@ public class PcSearchSql {
      *userAgent 的相似度计分
      *
      */
-    public static void numUaScore(PcDeviceInfoDO sourceDo,String userAgent,DeviceGradeResDTO res,Map<String, Object> score,
+    public static void numUaScore(PcDeviceInfoDO sourceDo,PcDeviceInfoDO tarDO,DeviceGradeResDTO res,Map<String, Object> score,
                                   Map<String, Object> lose){
 
         //判断UA特征字段是否已经加分
@@ -312,16 +351,26 @@ public class PcSearchSql {
             return;
         }
 
-        if (sourceDo.getUserAgent().equals(userAgent)) {
+        if (sourceDo.getUserAgent().equals(tarDO.getUserAgent())) {
             return;
         }
 
         //进行相似度计算
         BigDecimal similarityRatio = LevenshteinUtil.
-                getSimilarityRatio(sourceDo.getUserAgent(), userAgent);
+                getSimilarityRatio(sourceDo.getUserAgent(), tarDO.getUserAgent());
         res.setSimilarity(similarityRatio);
+
+        //判断相似度计算阈值(evercookie不同,IP一样阈值为0.978,否则为0.88)
+        BigDecimal similarityScore;
+
+        if (CommonUtil.judgeSimilarity(sourceDo, tarDO)) {
+            similarityScore = PC_ORI_UA_SCORE;
+        } else {
+            similarityScore = PC_UA_SCORE;
+        }
+
         //如果相似度大于0.978进行UA字段的加分计算
-        if (similarityRatio.compareTo(PC_UA_SCORE)==BigDecimal.ONE.intValue()) {
+        if (similarityRatio.compareTo(similarityScore)==BigDecimal.ONE.intValue()) {
             switch (sourceDo.getFlag()) {
                 case 1:
                     res.setScore(res.getScore().add(pcMap.get(SqlConstant.USER_AGENT)));

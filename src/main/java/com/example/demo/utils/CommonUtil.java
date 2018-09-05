@@ -224,4 +224,26 @@ public class CommonUtil {
 
         return flag;
     }
+
+    /**
+     *
+     * 根据不同的请求参数做出判断
+     * 为相似度阈值的取值做判断
+     *
+     * @param req 请求DO
+     * @param res ignite 搜索响应DO
+     *
+     */
+    public static boolean judgeSimilarity(PcDeviceInfoDO req, PcDeviceInfoDO res){
+        //evercookie不相等ip相等,返回true,否则false
+        if (null == req.getEverCookie() || null == req.getExtend1()){
+            return false;
+        }
+
+        if ((!req.getEverCookie().equals(res.getEverCookie())) && req.getExtend1().equals(res.getExtend1())) {
+            return true;
+        }
+
+        return false;
+    }
 }
