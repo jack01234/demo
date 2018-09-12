@@ -26,6 +26,7 @@
         <dubbo-spring-boot>1.0.0</dubbo-spring-boot>
         <cifcore.version>5.0.36-RELEASE</cifcore.version>
         <apache.poi.version>3.8</apache.poi.version>
+        <version.commons>5.0.6</version.commons>
     </properties>
 
     <dependencies>
@@ -96,6 +97,22 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.39</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.system.commons</groupId>
+            <artifactId>commons</artifactId>
         </dependency>
     </dependencies>
 
@@ -169,6 +186,18 @@
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
                 <version>${apache.poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.system.commons</groupId>
+                <artifactId>commons</artifactId>
+                <version>${version.commons}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

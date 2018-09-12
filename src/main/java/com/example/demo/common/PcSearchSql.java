@@ -72,12 +72,6 @@ public class PcSearchSql {
 
         buildCommonSql(sourceDo, tarDo, weightMap, res, score, lose);
 
-
-        //浏览器支持的语言
-
-        PcSqlTemplate.compareTemplate(sourceDo.getLanguage(),tarDo.getLanguage(),weightMap.get(LANGUAGE), res, score,
-                    lose, LANGUAGE);
-
         //设备内存
         PcSqlTemplate.compareTemplate(sourceDo.getDeviceMemory(),tarDo.getDeviceMemory(),weightMap.get(DEVICE_MEMORY), res,
                 score, lose, DEVICE_MEMORY);

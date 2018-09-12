@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import com.example.demo.dubbo.CifCoreConsumer;
+import com.example.demo.mapper.TestMapper;
+import com.example.demo.model.TestDO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +15,20 @@ public class DemoApplicationTests {
 
     @Autowired
     CifCoreConsumer cifCoreConsumer;
+
+    @Autowired
+    private TestMapper testMapper;
+
     @Test
     public void contextLoads() {
-        cifCoreConsumer.queryMerchantInfo("8013932677");
+
+        cifCoreConsumer.queryMerchantInfo("8037506450");
+    }
+
+    @Test
+    public void test(){
+        TestDO testDO = new TestDO();
+        testDO.setCookie("1234567");
+        testMapper.insert(testDO);
     }
 }

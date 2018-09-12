@@ -1,5 +1,5 @@
 server:
-  port: 9091
+  port: 8205
   max-http-header-size: 1048576
 spring:
   application:
@@ -8,7 +8,11 @@ spring:
     registry:
       protocol: zookeeper
       address: 10.0.21.58:2181
-
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
 eureka:
   client:
     service-url:
@@ -16,3 +20,7 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.example.demo.model
