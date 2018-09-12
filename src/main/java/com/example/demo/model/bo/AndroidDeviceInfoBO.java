@@ -119,6 +119,7 @@ public class AndroidDeviceInfoBO implements Serializable {
      * 是否双开
      */
     private String isVirtualApp;
+
     /**
      * 日志ID
      */

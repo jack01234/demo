@@ -192,7 +192,6 @@ public class MessageParseUtil {
         bo.setTotalSize(strSub(SqlConstant.TOTAL_SIZE, SqlConstant.ANDROID_ID, message));
 
         bo.setAndroidId(strSub(SqlConstant.ANDROID_ID, "isVirtualApp", message));
-
         return bo;
     }
 

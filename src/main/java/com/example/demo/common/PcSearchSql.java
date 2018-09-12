@@ -36,11 +36,6 @@ public class PcSearchSql {
 
         buildCommonSql(sourceDo, tarDo, weightMap, res, score, lose);
 
-        //设备内存
-        PcSqlTemplate.compareTemplate(sourceDo.getDeviceMemory(),tarDo.getDeviceMemory(),weightMap.get(DEVICE_MEMORY), res,
-                score, lose, DEVICE_MEMORY);
-
-
         //视屏ID
         PcSqlTemplate.novalScoreTemplate(sourceDo.getVideoId(),tarDo.getVideoId(),weightMap.get(VIDEO_ID), res,
                 score, lose, VIDEO_ID);
@@ -72,11 +67,6 @@ public class PcSearchSql {
 
         buildCommonSql(sourceDo, tarDo, weightMap, res, score, lose);
 
-        //设备内存
-        PcSqlTemplate.compareTemplate(sourceDo.getDeviceMemory(),tarDo.getDeviceMemory(),weightMap.get(DEVICE_MEMORY), res,
-                score, lose, DEVICE_MEMORY);
-
-
         //视屏ID
         PcSqlTemplate.novalScoreTemplate(sourceDo.getVideoId(),tarDo.getVideoId(),weightMap.get(VIDEO_ID), res,
                 score, lose, VIDEO_ID);
@@ -104,15 +94,6 @@ public class PcSearchSql {
 
 
         buildCommonSql(sourceDo, tarDo, weightMap, res, score, lose);
-
-        //设备内存(取不到加分)
-        if (sourceDo.getDeviceMemory().equals(tarDo.getDeviceMemory()) || NO_VAL.equals(sourceDo.getDeviceMemory())) {
-            res.setScore(res.getScore().add(weightMap.get(DEVICE_MEMORY)));
-            score.put(DEVICE_MEMORY,weightMap.get(DEVICE_MEMORY));
-        }else {
-            lose.put(DEVICE_MEMORY, weightMap.get(DEVICE_MEMORY));
-        }
-
 
         //一种屏蔽广告的插件
         PcSqlTemplate.compareTemplate(sourceDo.getAdBlock(),tarDo.getAdBlock(),weightMap.get(AD_BLOCK), res,
@@ -254,6 +235,10 @@ public class PcSearchSql {
         //WebGL的渲染器
         PcSqlTemplate.compareTemplate(sourceDo.getWebglRenderer(),tarDo.getWebglRenderer(),weightMap.get(WEBGL_RENDERER), res,
                 score, lose, WEBGL_RENDERER);
+
+        //设备内存
+        PcSqlTemplate.novalScoreTemplate(sourceDo.getDeviceMemory(),tarDo.getDeviceMemory(),weightMap.get(DEVICE_MEMORY),
+                res, score, lose, DEVICE_MEMORY);
 
     }
 
