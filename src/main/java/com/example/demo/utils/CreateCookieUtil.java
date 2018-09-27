@@ -35,4 +35,9 @@ public class CreateCookieUtil {
         String s = Integer.toHexString((Double.valueOf(((1 + Math.random()) * 0x10000)).intValue() | 0));
         return s.substring(1,s.length());
     }
+
+
+    public static void main(String[] args) {
+        System.out.println("201809190931301751421559547989647c16293542c629b342b69c5fb96b23fe".hashCode());
+    }
 }

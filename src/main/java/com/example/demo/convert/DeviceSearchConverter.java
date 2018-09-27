@@ -89,7 +89,7 @@ public class DeviceSearchConverter {
      */
     public static AndroidDeviceInfoBO androidDtoConvertToBo(AndroidDeviceInfoBO req){
         AndroidDeviceInfoBO res = new AndroidDeviceInfoBO();
-        res.setXyid(req.getXyid());
+        res.setGivingXyid(req.getGivingXyid());
         res.setFirstXyid(req.getFirstXyid());
         res.setTotalSize(StringUtils.isNotBlank(req.getTotalSize())?req.getTotalSize():NO_VAL);
         res.setDeviceName(StringUtils.isNotBlank(req.getDeviceName())?req.getDeviceName():NO_VAL);

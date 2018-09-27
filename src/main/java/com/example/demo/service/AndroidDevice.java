@@ -25,35 +25,35 @@ String url = "https://10.0.21.74:8901/gateway/device-engine-client/android/v2/ga
     public void runTest(){
         String trans_id =  new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
         JSONObject jsonDto = new JSONObject();
-        jsonDto.put("xyid","123456789");
 //       一级参数匹配
-        jsonDto.put("merchantNo", "8000014456");
-        jsonDto.put("unittype", "BLR-Ay67827");
-        jsonDto.put("bios", "BL2962722");
-        jsonDto.put("cpu", "t1266663277");
-        jsonDto.put("androidId", "t1266663277");
+        jsonDto.put("merchantNo", "8000013190");
+        jsonDto.put("xyid", "11809151317433850343101");
+        jsonDto.put("screenRes", "1440*2408");
+        jsonDto.put("unittype", "DUK-AL20");
+        jsonDto.put("bios", "DUK");
+        jsonDto.put("cpu", "");
+        jsonDto.put("androidId", "d0315f608c8f631f");
 //       二级参数匹配
-        jsonDto.put("devicename", "HWBLABLA-AB01");
-        jsonDto.put("sysVer", "8.0.4");
-        jsonDto.put("imei", "20180629231231112719,20180629231231112710");
-        jsonDto.put("phonenum", "18717877151,18717877152");
-        jsonDto.put("imsi", "20180629231231112775,10180629231231112775");
-        jsonDto.put("timezone", "[GMT+08:00,Asia/beijing]");
-        jsonDto.put("systemlan", "US");
+        jsonDto.put("devicename", "HWDUKDUK-AL20");
+        jsonDto.put("sysVer", "8.0.0");
+        jsonDto.put("imei", "863952035983780,863952035983780");
+        jsonDto.put("phonenum", "18637002608");
+        jsonDto.put("imsi", "460017013628299,89860117801451167045");
+        jsonDto.put("timezone", "GMT+08:00,Asia/Shanghai");
+        jsonDto.put("systemlan", "zh");
         jsonDto.put("isroot", "0");
-        jsonDto.put("fontnum", "3");
+        jsonDto.put("fontnum", "0");
         jsonDto.put("isVirtualApp", "1");
         jsonDto.put("screenres", "1081*2040");
-        jsonDto.put("fcpu", "1844007");
-        jsonDto.put("totalSize", "123123123");
-        jsonDto.put("mac", "58:02:03:04:05:09");
-        jsonDto.put("androidId", "17300ef0cb2c655522");
+        jsonDto.put("fcpu", "1844000");
+        jsonDto.put("totalSize", "121460637696");
+        jsonDto.put("mac", "70:8A:09:94:8A:C6");
         jsonDto.put("extra", "TEST12312");
         jsonDto.put("sdSize", "123123123");
         jsonDto.put("romSize", "123123123");
         jsonDto.put("ramSize", "123123123");
         jsonDto.put("sdkVersion", "1.0.3");
-        jsonDto.put("appName", "漫生活222");
+        jsonDto.put("appName", "漫生活2223");
         jsonDto.put("location", "777777,777777");
         jsonDto.put("virtualInfo", "{\"ro.product.brand\":\"HONOR\",\"baseBand\":\"678\",\"ro.product.device\":\"HWBND-H\",\"ro.product.manufacturer\":\"HUAWEI\",\"ro.hardware\":\"hi6250\",\"ro.product.model\":\"BND-AL10\",\"ro.build.product\":\"hi6250\",\"ro.build.fingerprint\":\"HONOR/BND-AL10/HWBND-H:7.0/HONORBND-AL10/C00B201:user/release-keys\"}");
         List<String> stringList = new ArrayList<String>();
@@ -490,10 +490,7 @@ String url = "https://10.0.21.74:8901/gateway/device-engine-client/android/v2/ga
         jsonDto1.put("message", requestData);
         System.out.println("加密报文：" + jsonDto1.toString());
 
-        String name = "";
-        String[] split = name.split("-");
-        String s = split[3];
-        String substring = s.substring(0,s.indexOf("."));
+
         try {
             ApiPostUtil postUtil = new ApiPostUtil(url,10000,10000);
             String responseData = postUtil.sendHttps(jsonDto1.toJSONString(),"POST","UTF-8");

@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo.model.BizInfoDO;
 import com.example.demo.utils.AesUtil;
 import com.example.demo.utils.ApiPostUtil;
 import org.junit.jupiter.api.Test;
@@ -21,7 +20,7 @@ public class DevicePc{
     public void runTest(){
         JSONObject jsonDto = new JSONObject();
         String trans_id =  new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
-        jsonDto.put("merchantNo","8000014456");
+        jsonDto.put("merchantNo","8000013190");
 //        jsonDto.put("token",trans_id+ "00000000001");
 //        jsonDto.put("token","NOVAL");
 //        jsonDto.put("token","2018061909463849600007700001");
@@ -84,29 +83,16 @@ public class DevicePc{
         }catch (Exception e){
             e.printStackTrace();
         }
-//        try {
-////            requestData = URLEncoder.encode(requestData, "UTF-8"); //加码
-//        } catch (UnsupportedEncodingException e){
-//            e.printStackTrace();
-//        }
         JSONObject jsonDto1 = new JSONObject();
         jsonDto1.put("message", requestData);
         System.out.println("加密报文：" + jsonDto1.toString());
         ApiPostUtil postUtil = new ApiPostUtil(url,10000,10000);
 
-//        String responseData = ApiPostUti(url, jsonDto1.toString(),"UTF-8");
         try {
             String post = postUtil.sendHttps(jsonDto1.toString(), "POST", "UTF-8");
             System.out.println("返回结果密文：" + new String(post.getBytes(), "UTF-8"));
         } catch (Exception e){
             e.printStackTrace();
         }
-    }
-
-
-    public static void main(String[] args) {
-        String ss = "{\"subMerchantNo\":\"\",\"name\":\"\",\"idNo\":\"\",\"phoneNum\":\"\",\"bankCardNo\":\"\",\"loginNo\":\"\"}";
-        BizInfoDO bizInfoDO = JSONObject.parseObject(ss, BizInfoDO.class);
-        System.out.println(bizInfoDO.toString());
     }
 }

@@ -5,6 +5,10 @@ import com.example.demo.model.bo.PcDeviceInfoBO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * 相关参数校验
@@ -15,6 +19,8 @@ import org.springframework.util.StringUtils;
  */
 @Slf4j
 public class ParamCheckUtil {
+
+    private static String REX = "(?<=\\/)[^\\/]+";
     /**
      * 默认值
      */
@@ -87,5 +93,45 @@ public class ParamCheckUtil {
             return val<0?split[0]:split[1];
         }
         return split[0];
+    }
+    /**
+     * 从UA里面截取unitType
+     *
+     * @return unitType
+     */
+    public static String getUnitType(String str){
+        if (StringUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            Pattern compile = Pattern.compile(REX);
+            Matcher matcher = compile.matcher(str);
+            if (!matcher.find()){
+                return null;
+            }
+            String[] results = matcher.group().split(";");
+            String result = results[results.length - 1];
+            String unityType = result.substring(0, result.length() - 6);
+            if (StringUtils.isEmpty(unityType)){
+                return null;
+            }
+            return unityType;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    public static void main(String[] args) {
+        List<String> strings = FileUtil.readTxtFile("D://Desktop/设备指纹数据.txt");
+        for (int i=0;i<strings.size();i++) {
+            long startTime = System.currentTimeMillis();
+
+           String result = getUnitType(strings.get(i));
+
+
+           System.out.println("第"+ i +"次, 结果:"+ result);
+
+
+            System.out.println("耗时:"+String.valueOf(System.currentTimeMillis()-startTime));
+        }
     }
 }

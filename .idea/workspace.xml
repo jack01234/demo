@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a2bee1b-79e8-4a9e-993d-465cde79bef5" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/SearchAndroidService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/common/PcSearchSql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/common/PcSearchSql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/convert/DeviceSearchConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/convert/DeviceSearchConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/bo/AndroidDeviceInfoBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/bo/AndroidDeviceInfoBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/MessageParseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/MessageParseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/AndroidDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/AndroidDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/DevicePc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/DevicePc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/CreateCookieUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/CreateCookieUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/ParamCheckUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/ParamCheckUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,64 +21,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/CommonUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="132" column="38" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PcDeviceGrade.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/PcDeviceGrade.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceGradeUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/DeviceGradeUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="177" column="23" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidDeviceInfoDO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/AndroidDeviceInfoDO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PcSearchSql.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/common/PcSearchSql.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="75" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidDeviceGrade.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/AndroidDeviceGrade.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="50" column="66" lean-forward="true" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MessageParseUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/MessageParseUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
+            <state relative-caret-position="2869">
               <caret line="157" column="22" selection-start-line="157" selection-start-column="22" selection-end-line="157" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -83,32 +33,88 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidDeviceInfoBO.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AndroidDeviceInfoBO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/bo/AndroidDeviceInfoBO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="116" column="29" lean-forward="true" selection-start-line="116" selection-start-column="29" selection-end-line="116" selection-end-column="29" />
+            <state relative-caret-position="228">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SqlConstant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/SqlConstant.java">
+      <file leaf-file-name="AndroidDevice.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/AndroidDevice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="154" column="31" selection-start-line="154" selection-start-column="31" selection-end-line="154" selection-end-column="31" />
+            <state relative-caret-position="209">
+              <caret line="20" column="84" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="84" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PcSqlTemplate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/common/PcSqlTemplate.java">
+      <file leaf-file-name="DevicePc.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/DevicePc.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="46" column="85" selection-start-line="46" selection-start-column="84" selection-end-line="46" selection-end-column="85" />
+            <state relative-caret-position="247">
+              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchAndroidService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/SearchAndroidService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParamCheckUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/ParamCheckUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="583">
+              <caret line="123" column="54" selection-start-line="123" selection-start-column="54" selection-end-line="123" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/FileUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="33" column="42" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#9279#9280#0" expanded="true" />
+                <element signature="e#9345#9346#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeviceSearchConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/convert/DeviceSearchConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2071">
+              <caret line="112" column="45" selection-start-line="112" selection-start-column="45" selection-end-line="112" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RestTemplate.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.6.RELEASE/spring-web-5.0.6.RELEASE-sources.jar!/org/springframework/web/client/RestTemplate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7581">
+              <caret line="460" column="33" selection-start-line="460" selection-start-column="33" selection-end-line="460" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateCookieUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/CreateCookieUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="608">
+              <caret line="34" column="105" selection-start-line="34" selection-start-column="105" selection-end-line="34" selection-end-column="105" />
             </state>
           </provider>
         </entry>
@@ -141,21 +147,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/HttpRequestUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/AesUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/BaiDuSignUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/DevicePc.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/BizInfoDO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/IosDevice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dubbo/DubboProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dubbo/DubboProvicer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dubbo/provider/DubboProvicerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/dubbo/CifCoreConsumer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/AndroidDevice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/Swagger2Config.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/DeviceGradeDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/DeviceGradeResDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/PcDeviceInfoDO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/dto/MessEncryptResDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/dto/DeviceGradeDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/convert/DeviceSearchConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/common/AndroidSearchSql.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/AndroidDeviceInfoDO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/dto/DeviceGradeResDTO.java" />
@@ -165,7 +168,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/SimilarController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/PcDeviceNewInfoDO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/FileUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/ParamCheckUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/CommonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/common/CommonConstant.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/DeviceGradeUtil.java" />
@@ -177,7 +179,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/Result.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/enums/ErrorCodeEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/CreateCookieUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/logback-spring.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/controller/TestController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/test.xml" />
@@ -185,7 +186,13 @@
         <option value="$PROJECT_DIR$/src/test/java/com/example/demo/DemoApplicationTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/common/PcSearchSql.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/MessageParseUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/AndroidDevice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/CreateCookieUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/DevicePc.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/model/bo/AndroidDeviceInfoBO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/service/SearchAndroidService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/convert/DeviceSearchConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/utils/ParamCheckUtil.java" />
       </list>
     </option>
   </component>
@@ -212,10 +219,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="4" />
-    <option name="y" value="1" />
+    <option name="x" value="725" />
+    <option name="y" value="70" />
     <option name="width" value="1022" />
-    <option name="height" value="726" />
+    <option name="height" value="679" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -223,6 +230,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -256,58 +266,10 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mappers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,7 +306,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.DemoApplication">
+  <component name="RunManager" selected="Application.ParamCheckUtil">
     <configuration name="CreateCookieUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.demo.utils.CreateCookieUtil" />
       <module name="demo" />
@@ -356,8 +318,8 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="DeviceGradeUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.utils.DeviceGradeUtil" />
+    <configuration name="ParamCheckUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.utils.ParamCheckUtil" />
       <module name="demo" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -370,19 +332,19 @@
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="DemoApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AndroidDevice.runTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.*" />
+          <option name="PATTERN" value="com.example.demo.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.example.demo" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.DemoApplicationTests" />
-      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="PACKAGE_NAME" value="com.example.demo.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.service.AndroidDevice" />
+      <option name="METHOD_NAME" value="runTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -393,19 +355,19 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="DemoApplicationTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DevicePc.runTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.*" />
+          <option name="PATTERN" value="com.example.demo.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.example.demo" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.DemoApplicationTests" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="PACKAGE_NAME" value="com.example.demo.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.service.DevicePc" />
+      <option name="METHOD_NAME" value="runTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -466,18 +428,18 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.DemoApplication" />
-      <item itemvalue="Application.DeviceGradeUtil" />
-      <item itemvalue="JUnit.DemoApplicationTests.test" />
       <item itemvalue="Application.CreateCookieUtil" />
-      <item itemvalue="JUnit.DemoApplicationTests.contextLoads" />
+      <item itemvalue="JUnit.AndroidDevice.runTest" />
+      <item itemvalue="JUnit.DevicePc.runTest" />
+      <item itemvalue="Application.ParamCheckUtil" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.DemoApplication" />
-        <item itemvalue="JUnit.DemoApplicationTests.contextLoads" />
+        <item itemvalue="Application.ParamCheckUtil" />
+        <item itemvalue="JUnit.DevicePc.runTest" />
         <item itemvalue="Application.CreateCookieUtil" />
-        <item itemvalue="JUnit.DemoApplicationTests.test" />
-        <item itemvalue="Application.DeviceGradeUtil" />
+        <item itemvalue="JUnit.AndroidDevice.runTest" />
+        <item itemvalue="Spring Boot.DemoApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -535,7 +497,13 @@
       <workItem from="1536284472597" duration="13630000" />
       <workItem from="1536374147633" duration="2366000" />
       <workItem from="1536667758692" duration="700000" />
-      <workItem from="1536739040252" duration="1430000" />
+      <workItem from="1536739040252" duration="2677000" />
+      <workItem from="1536988953387" duration="2483000" />
+      <workItem from="1537147374097" duration="4219000" />
+      <workItem from="1537321210048" duration="4305000" />
+      <workItem from="1537517778713" duration="761000" />
+      <workItem from="1537933055201" duration="17122000" />
+      <workItem from="1538011747045" duration="1723000" />
     </task>
     <task id="LOCAL-00001" summary="顺丰速递">
       <created>1534730364850</created>
@@ -621,22 +589,17 @@
       <option name="project" value="LOCAL" />
       <updated>1536739308990</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="优化">
+      <created>1536740500082</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1536740500082</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="IosDevice - 2018.08.23 at 16h 41m 48s.xml">
-      <configuration name="IosDevice" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DemoApplicationTests_test - 2018.09.07 at 14h 06m 58s.xml">
-      <configuration name="DemoApplicationTests.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DemoApplicationTests_test - 2018.09.07 at 14h 10m 55s.xml">
-      <configuration name="DemoApplicationTests.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DemoApplicationTests_test - 2018.09.07 at 14h 11m 49s.xml">
-      <configuration name="DemoApplicationTests.test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DemoApplicationTests_test - 2018.09.07 at 14h 16m 27s.xml">
       <configuration name="DemoApplicationTests.test" configurationId="JUnit" />
     </history-entry>
@@ -649,16 +612,34 @@
     <history-entry file="DemoApplicationTests_contextLoads - 2018.09.08 at 12h 04m 31s.xml">
       <configuration name="DemoApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AndroidDevice_runTest - 2018.09.15 at 13h 37m 42s.xml">
+      <configuration name="AndroidDevice.runTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AndroidDevice_runTest - 2018.09.15 at 13h 38m 30s.xml">
+      <configuration name="AndroidDevice.runTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AndroidDevice_runTest - 2018.09.15 at 13h 47m 09s.xml">
+      <configuration name="AndroidDevice.runTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AndroidDevice_runTest - 2018.09.15 at 13h 51m 23s.xml">
+      <configuration name="AndroidDevice.runTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AndroidDevice_runTest - 2018.09.15 at 13h 52m 32s.xml">
+      <configuration name="AndroidDevice.runTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DevicePc_runTest - 2018.09.19 at 14h 30m 00s.xml">
+      <configuration name="DevicePc.runTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93398000" />
+    <option name="totallyTimeSpent" value="125258000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50053877" side_tool="true" weight="0.4550898" />
-      <window_info anchor="right" id="Maven Projects" order="9" visible="true" weight="0.06896552" />
+      <window_info anchor="right" id="Maven Projects" order="9" visible="true" weight="0.03448276" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
@@ -666,17 +647,18 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40239522" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.17245509" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.33930704" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.39041916" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.3297491" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4994612" visible="true" weight="0.08263473" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33293414" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4994612" weight="0.22155689" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.35364395" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3760479" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26993534" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37068966" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -684,7 +666,6 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.61077845" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -798,32 +779,10 @@
           <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="41" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/bo/PcDeviceInfoBO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/convert/DeviceSearchConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1332">
-          <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessEncryptController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/dto/MessEncryptResDTO.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -871,18 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1148">
           <caret line="252" column="7" lean-forward="true" selection-start-line="252" selection-start-column="7" selection-end-line="252" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5130">
-          <caret line="286" column="5" selection-start-line="284" selection-start-column="42" selection-end-line="286" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#9279#9280#0" expanded="true" />
-            <element signature="e#9345#9346#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,13 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/DevicePc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1653">
-          <caret line="94" column="41" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/ApiPostUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4161">
@@ -1017,27 +957,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/CreateCookieUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/BaiDuSignUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/ParamCheckUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1078,14 +1001,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/PcDeviceGrade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="1330">
           <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/common/PcSqlTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
+        <state relative-caret-position="760">
           <caret line="46" column="85" selection-start-line="46" selection-start-column="84" selection-end-line="46" selection-end-column="85" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1095,8 +1018,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/common/PcSearchSql.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="75" selection-end-column="39" />
+        <state relative-caret-position="1178">
+          <caret line="74" column="37" selection-start-line="74" selection-start-column="37" selection-end-line="75" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1109,35 +1032,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/SqlConstant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="2926">
           <caret line="154" column="31" selection-start-line="154" selection-start-column="31" selection-end-line="154" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/CommonUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
+        <state relative-caret-position="2432">
           <caret line="132" column="38" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/DeviceGradeUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
+        <state relative-caret-position="3078">
           <caret line="177" column="23" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/AndroidDeviceGrade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="50" column="66" lean-forward="true" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="66" />
+        <state relative-caret-position="646">
+          <caret line="50" column="66" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/MessageParseUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
+        <state relative-caret-position="2869">
           <caret line="157" column="22" selection-start-line="157" selection-start-column="22" selection-end-line="157" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1145,10 +1068,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/CreateCookieUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="34" column="105" selection-start-line="34" selection-start-column="105" selection-end-line="34" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/DevicePc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/AndroidDevice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="20" column="84" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.6.RELEASE/spring-web-5.0.6.RELEASE-sources.jar!/org/springframework/web/client/RestTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7581">
+          <caret line="460" column="33" selection-start-line="460" selection-start-column="33" selection-end-line="460" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/service/SearchAndroidService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/model/bo/AndroidDeviceInfoBO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="116" column="29" lean-forward="true" selection-start-line="116" selection-start-column="29" selection-end-line="116" selection-end-column="29" />
+        <state relative-caret-position="228">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/convert/DeviceSearchConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2071">
+          <caret line="112" column="45" selection-start-line="112" selection-start-column="45" selection-end-line="112" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="33" column="42" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9279#9280#0" expanded="true" />
+            <element signature="e#9345#9346#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/utils/ParamCheckUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="123" column="54" selection-start-line="123" selection-start-column="54" selection-end-line="123" selection-end-column="54" />
         </state>
       </provider>
     </entry>

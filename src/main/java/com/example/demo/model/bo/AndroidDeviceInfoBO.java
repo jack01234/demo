@@ -21,7 +21,7 @@ public class AndroidDeviceInfoBO implements Serializable {
     /**
      * 设备ID
      */
-    private String xyid;
+    private String givingXyid;
     /**
      * 老的设备ID
      */
