@@ -4,11 +4,26 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.demo.utils.AesUtil;
 import com.example.demo.utils.ApiPostUtil;
 import com.example.demo.utils.GzipUtils;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.TrustStrategy;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.junit.jupiter.api.Test;
+import org.springframework.http.*;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
+import javax.net.ssl.SSLContext;
+import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by BF100269 on 2016/10/9.
@@ -76,5 +91,44 @@ public class IosDevice {
             System.out.println("zip error:" + e.getCause() + e.getMessage());
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        TrustStrategy acceptingTrustStrategy = (X509Certificate[] chain, String authType) -> true;
+        try {
+            SSLContext sslContext = org.apache.http.ssl.SSLContexts.custom()
+                    .loadTrustMaterial(null, acceptingTrustStrategy)
+                    .build();
+            SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext);
+            CloseableHttpClient httpClient = HttpClients.custom()
+                    .setSSLSocketFactory(csf)
+                    .build();
+
+            HttpComponentsClientHttpRequestFactory requestFactory =
+                    new HttpComponentsClientHttpRequestFactory();
+
+            requestFactory.setHttpClient(httpClient);
+            requestFactory.setConnectTimeout(1000);
+            requestFactory.setReadTimeout(5000);
+            RestTemplate restTemplate = new RestTemplate(requestFactory);
+            List<HttpMessageConverter<?>> messageConverters = restTemplate.getMessageConverters();
+            HttpMessageConverter<?> converter = new StringHttpMessageConverter(StandardCharsets.UTF_8);
+            messageConverters.add(1,converter);
+            restTemplate.setMessageConverters(messageConverters);
+
+            URI uri = URI.create("https://dfp.xinyan.com/gateway/device-core/core/v1/queryDeviceInfoByToken");
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("token","1812190941234714282102");
+            jsonObject.put("merchantNo","8150715562");
+            jsonObject.put("transLogId",UUID.randomUUID());
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+            httpHeaders.setAcceptCharset(Arrays.asList(StandardCharsets.UTF_8));
+            HttpEntity<String> httpEntity = new HttpEntity<>(jsonObject.toJSONString(),httpHeaders);
+            ResponseEntity<String> exchange = restTemplate.exchange(uri, HttpMethod.POST, httpEntity, String.class);
+            System.out.println(exchange);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

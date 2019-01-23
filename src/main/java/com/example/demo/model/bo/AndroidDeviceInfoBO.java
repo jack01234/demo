@@ -124,4 +124,13 @@ public class AndroidDeviceInfoBO implements Serializable {
      * 日志ID
      */
     private String transLogId;
+
+    //WiFi对应的IP、基站IP、VPN IP、网卡地址(待确认是否和已采集的localIp一样)、BSSID
+    private String wifiIp;
+
+    private String bsIp;
+
+    private String vpnIp;
+
+    private String bssId;
 }

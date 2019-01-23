@@ -1,5 +1,7 @@
 package com.example.demo.utils;
 
+import com.alibaba.fastjson.JSONObject;
+import com.system.commons.utils.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import sun.misc.BASE64Decoder;
 
@@ -7,6 +9,8 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.Charset;
+import java.util.Date;
+import java.util.UUID;
 
 /**
  * Aes算法加解密
@@ -82,4 +86,18 @@ public class AesUtil {
         return null;
     }
 
+    public static void main(String[] args) {
+//        String key = "lm4y65eyesejhsc2";
+        JSONObject json = new JSONObject();
+        json.put("idName","李文明");
+        json.put("idNo","411423198911122018");
+        json.put("phoneNum","13795396210");
+        json.put("tradeDate",DateUtil.format(new Date(),DateUtil.fullPattern));
+        json.put("version","1.0.3");
+        json.put("industryType","A5");
+        json.put("transId",UUID.randomUUID());
+        String s = RsaCodingUtil.encryptByPriPfxFile(json.toJSONString(), "E://设备指纹相关/证书/xinyantest_pri.pfx", "123456");
+//        String encrypt = encrypt(json.toJSONString(), key);
+        System.out.println(s);
+    }
 }

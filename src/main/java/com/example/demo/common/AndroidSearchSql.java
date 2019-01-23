@@ -20,6 +20,16 @@ import static com.example.demo.utils.SqlConstant.NAVAL_HASH;
  */
 public class AndroidSearchSql {
 
+    private String s;
+    private String a;
+    private String d;
+
+    public AndroidSearchSql(String s, String a, String d){
+        this.s = s;
+        this.a = a;
+        this.d = d;
+    }
+
     /**
      *
      * 判断一级特征是否相等

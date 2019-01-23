@@ -45,7 +45,7 @@ public class FileUtil {
                 String lineTxt;
                 while ((lineTxt = br.readLine()) != null){
 
-                    System.out.println(lineTxt);
+//                    System.out.println(lineTxt);
                     list.add(lineTxt);
 
                 }
